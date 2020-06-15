@@ -6,11 +6,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class IHMFahrenheit extends JFrame implements ActionListener{
-  private JTextField entree = new JTextField( 6 );
+  private JTextField entree = new JTextField( 8 );
   /** Le bouton de conversion. */
   private JButton  boutonDeConversion = new JButton( "convertir" );
   /** La sortie en degré Celsius. */
-  private JTextField sortie = new JTextField( 6 );
+  private JTextField sortie = new JTextField( 8 );
 
   public IHMFahrenheit(){
     super("IHM Fahrenheit");
@@ -18,8 +18,8 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
     setLayout(new FlowLayout());
     add( entree ); add( boutonDeConversion ); add( sortie );
     sortie.setEditable( false );
-    getContentPane().setBackground( Color.pink );
-    setLocation(100,100);
+    getContentPane().setBackground( Color.blue );
+    setLocation(150,100);
     pack();setVisible(true);
     
     boutonDeConversion.addActionListener( this );
@@ -32,8 +32,13 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
    */
   public void actionPerformed( ActionEvent ae ){
     try{
-      int fahrenheit = 0; // valeur est une String et doit être convertie en entier, voir java.lang.Integer méthode parseInt (--> try/catch)
-      float celsius = 0F; // à compléter, en appelant la méthode ad'hoc de la question2 
+        String donnee=entree.getText();//appel du text qui est implemente par l'utilisateur
+      int fahrenheit = Integer.parseInt(donnee); // valeur est une String et doit être convertie en entier, voir java.lang.Integer méthode parseInt (--> try/catch)
+      float c = FahrenheitCelsius.fahrenheitEnCelsius(fahrenheit);//on appel la class principal FahrenheitCelsius pour que la method fahrenheitEnCelsius soit verifiee
+      float celsius = c;
+      if(celsius< -273.1){
+          celsius= -273.1f;
+        }// à compléter, en appelant la méthode ad'hoc de la question2 
       // un test ici pour le zéro absolu (-273.1)
 
       sortie.setText( Float.toString( celsius));

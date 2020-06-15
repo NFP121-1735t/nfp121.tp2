@@ -33,7 +33,7 @@ public class FahrenheitCelsiusTest extends junit.framework.TestCase {
 	/**
 	 * Constructeur de la classe-test FahrenheitCelsiusTest
 	 */
-	public FahrenheitCelsiusTest() {
+	public FahrenheitCelsiusTest(){
 	}
 
 	/**

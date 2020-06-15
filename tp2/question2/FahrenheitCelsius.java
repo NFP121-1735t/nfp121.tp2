@@ -15,13 +15,18 @@ public class FahrenheitCelsius{
       *  @param args ...
       */
      public static void main(String[] args){
-       try{
-       
+         for(int i = 0 ; i<=args.length;i++){
+          String re= args[i];   
+          try{
+              int fahrenheit=Integer.parseInt(re);
+              float celsius= fahrenheitEnCelsius(fahrenheit);
+              System.out.println(fahrenheit + "\u00B0F -> " + celsius + "\u00B0C");
+        
       
-       }catch(NumberFormatException nfe){
+            }catch(NumberFormatException nfe){
            System.out.println("error : " + nfe.getMessage());  // en cas d'erreur 
        }
-       
+    } 
      }
      
      /** 
@@ -30,9 +35,17 @@ public class FahrenheitCelsius{
       *   @return  la conversion en degré Celsius
       */
      public static float fahrenheitEnCelsius( int f){
+          float resultat;
+	    resultat=(float)(((f - 32)*5.0)/9.0);
+	    resultat=(float)(((int)(resultat*10.0))/10.0);// on met(float) devant pour affirmer que la resultat est decimal en plus on met 5.0 et 9.0 car la division entre 2 entiers est un entier donc c pour affirmer que la devision peut doner un resultat decimal
+	    
+	 
+	    
+		return resultat;
        // ...
-       return 0.F;	// à compléter	en remplaçant la valeur retournée par la fonction de conversion
+         // à compléter  en remplaçant la valeur retournée par la fonction de conversion
        // ...
      }
+    }
 
-}
+
